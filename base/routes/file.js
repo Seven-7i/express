@@ -35,8 +35,6 @@ const emptyDirectory = async (req, res, next) => {
 
 // console.log(formidable)
 router.post("/upload", emptyDirectory, upload.single('file'), (req, res) => {
-  console.log('***************')
-  // console.log(form)
   // res.send("upload success");
   res.json({
     files: req.file,
