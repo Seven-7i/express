@@ -32,14 +32,36 @@ mongoose.connection.once('open', async () => {
   // 2. 创建模型对象
   let BookModel = mongoose.model('books', BookSchema)
 
-  // 3. 字段筛选
-  // result = await BookModel.find({}).select({ name: 1, author: 1, _id: 0 })
+  // 3. 新增数据
+  // result = await BookModel.create({
+  //   name: '西游记',
+  //   author: '吴承恩',
+  //   size: 'M',
+  //   price: 19.9,
+  //   is_hot: false,
+  //   tags: ['游戏', '科幻', '西游'],
+  //   createdAt: new Date()
+  // })
+  // console.log(result)
 
-  // 3. 排序
-  // result = await BookModel.find({}).sort({ price: -1 })
+  // 4. 删除数据
+  // result = await BookModel.deleteOne({ _id: '664b4d83677198fbfa86764b' })
+  // console.log(result)
 
-  // 4. 数据截取
-  result = await BookModel.find({}).skip(1).limit(2)
+  // 5. 批量删除
+  // result = await BookModel.deleteMany({ is_hot: true })
+  // console.log(result)
+
+  // 6. 更新数据
+  // result = await BookModel.updateOne({ _id: '664b54f848e5253bcbfc6d93' }, { price: 29.9 })
+  // console.log(result)
+
+  // 7. 查询数据
+  // result = await BookModel.findOne({ name: '西游记12' })
+  // console.log(result)
+
+  // 8. 查询多条数据
+  result = await BookModel.find({ author: '吴承恩' })
   console.log(result)
 })
 

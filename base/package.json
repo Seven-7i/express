@@ -11,9 +11,12 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
+    "connect-mongo": "^5.1.0",
+    "cookie-parser": "^1.4.6",
     "dayjs": "^1.11.11",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
+    "express-session": "^1.18.0",
     "mongoose": "^8.3.4",
     "multer": "^1.4.5-lts.1"
   }

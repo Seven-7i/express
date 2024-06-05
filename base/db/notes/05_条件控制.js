@@ -32,14 +32,17 @@ mongoose.connection.once('open', async () => {
   // 2. 创建模型对象
   let BookModel = mongoose.model('books', BookSchema)
 
-  // 3. 字段筛选
-  // result = await BookModel.find({}).select({ name: 1, author: 1, _id: 0 })
+  // 8. 查询多条数据
+  // $gt(>), $lt(<), $gte(>=), $lte(<=), $ne(!==), $in, $nin, $all, $regex, $options
+  // result = await BookModel.find({ price: { $lt: 2 } })
 
-  // 3. 排序
-  // result = await BookModel.find({}).sort({ price: -1 })
+  // $or, $and
+  // result = await BookModel.find({ $or: [{ author: '吴承恩' }, { author: '鲁迅' }] })
 
-  // 4. 数据截取
-  result = await BookModel.find({}).skip(1).limit(2)
+  // 正则表达式查询
+  // result = await BookModel.find({ name: /楼/ })
+  result = await BookModel.find({ name: new RegExp('楼') })
+
   console.log(result)
 })
 
